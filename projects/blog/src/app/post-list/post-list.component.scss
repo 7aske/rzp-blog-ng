@@ -1,0 +1,25 @@
+@import "projects/common/src/assets/scss/theme";
+.ngx-pagination {
+	li.disabled {
+		&, & span {
+			color: $theme-grey-light !important;
+		}
+	}
+
+	li.ng-star-inserted {
+		border-radius: 10px !important;
+	}
+
+	a.ng-star-inserted {
+		color: $theme-white!important;
+		&:hover {
+			&, span {
+				color: $theme-grey !important;
+				border-radius: 10px !important;
+			}
+		}
+	}
+}
+.ngx-pagination .current {
+	background: $theme-primary !important;
+}

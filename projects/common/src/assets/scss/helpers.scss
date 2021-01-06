@@ -741,6 +741,11 @@ a.text-dark:focus {
 	visibility: hidden !important;
 }
 
+.d-invisible {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .d-flex {
 	display: -webkit-box !important;
 	display: -ms-flexbox !important;
@@ -894,4 +899,8 @@ a.text-dark:focus {
 	.flow-text {
 		font-size: 1.2rem;
 	}
+}
+
+.animated {
+	transition: all 500ms;
 }

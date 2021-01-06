@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { PostService } from "../../services/post.service";
 import { Post } from "../../../../common/src/@types/entity/Post";
 
@@ -6,9 +6,11 @@ import { Post } from "../../../../common/src/@types/entity/Post";
 	selector: "blog-blog-list",
 	templateUrl: "./post-list.component.html",
 	styleUrls: ["./post-list.component.scss"],
+	encapsulation: ViewEncapsulation.None,
 })
 export class PostListComponent implements OnInit {
 	public posts: Post[] = [];
+	public page: number = 0;
 
 	constructor(private postService: PostService) {
 	}

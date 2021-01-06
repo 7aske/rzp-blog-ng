@@ -13,6 +13,8 @@ import { PostComponent } from "./post/post.component";
 import { MarkdownModule, MarkedOptions } from "ngx-markdown";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { PostListSkeletonComponent } from './post-list/post-list-skeleton/post-list-skeleton.component';
+import { NgxPaginationModule } from "ngx-pagination";
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
 	declarations: [
@@ -26,6 +28,8 @@ import { PostListSkeletonComponent } from './post-list/post-list-skeleton/post-l
 		BrowserModule,
 		BlogRoutingModule,
 		BrowserAnimationsModule,
+		ScrollToModule.forRoot(),
+		NgxPaginationModule,
 		CommonModule,
 		HttpClientModule,
 		MarkdownModule.forRoot({

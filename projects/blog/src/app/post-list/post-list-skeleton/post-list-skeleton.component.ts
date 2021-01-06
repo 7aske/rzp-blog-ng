@@ -16,7 +16,7 @@ import { trigger, state, style, transition, animate } from "@angular/animations"
 				'height': '150px',
 				'background-color': '#7d7d7d'
 			}" animation="pulse"></ngx-skeleton-loader>
-			<ngx-skeleton-loader count="{{randomCount()}}" [theme]="{
+			<ngx-skeleton-loader [count]="randomCount()" [theme]="{
 				'border-radius': '10px',
 				'height': '25px',
 				'width': '50px',
@@ -35,11 +35,7 @@ import { trigger, state, style, transition, animate } from "@angular/animations"
 	],
 })
 export class PostListSkeletonComponent {
-	public randomCount(): number {
+	public randomCount() {
 		return Math.round(Math.random() * 5);
-	}
-
-	public randomTitleSize(): number {
-		return Math.round(Math.random() * 200 + 300);
 	}
 }
