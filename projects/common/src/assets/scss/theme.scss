@@ -1,138 +1,113 @@
-@import '~@angular/material/theming';
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
+$theme-black: #232931;
+$theme-grey: #393e46;
+$theme-grey-light: #656d7b;
+$theme-primary: #4ecca3;
+$theme-primary-dark: #3ea183;
+$theme-primary-light: #c2eddf;
+$theme-white: #eeeeee;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,500');
+$theme-text: $theme-white;
+$theme-text-disabled: $theme-white;
+$theme-background: $theme-black;
 
-// Dark bg
-$dark-background:     #2c2c2c;
-$dark-bg-lighter-5:   lighten($dark-background, 5%);
-$dark-bg-lighter-10:  lighten($dark-background, 10%);
-$dark-bg-lighter-20:  lighten($dark-background, 20%);
-$dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#fafafa, 0.04);
-$light-bg-alpha-12:   rgba(#fafafa, 0.12);
-
-// Background palette for dark themes.
-$mat-dark-theme-background: (
-	background:               $dark-background,
-	status-bar:               $dark-bg-lighter-20,
-	app-bar:                  $dark-bg-lighter-5,
-	hover:                    $light-bg-alpha-4,
-	card:                     $dark-bg-lighter-5,
-	dialog:                   $dark-bg-lighter-5,
-	tooltip:                  $dark-bg-lighter-20,
-	disabled-button:          $light-bg-alpha-12,
-	raised-button:            $dark-bg-lighter-5,
-	focused-button:           $light-focused,
-	selected-button:          $dark-bg-lighter-20,
-	selected-disabled-button: $dark-bg-lighter-30,
-	disabled-button-toggle:   $dark-bg-lighter-10,
-	unselected-chip:          $dark-bg-lighter-20,
-	disabled-list-option:     $dark-bg-lighter-10,
-);
-
-// Theme Config
-
-body {
-	--primary-color: #00adb5;
-	--primary-lighter-color: #b3e6e9;
-	--primary-darker-color: #00939d;
-	--text-primary-color: #{$light-primary-text};
-	--text-primary-lighter-color: #{$dark-primary-text};
-	--text-primary-darker-color: #{$light-primary-text};
-}
-
-$mat-primary: (
-	main: #00adb5,
-	lighter: #b3e6e9,
-	darker: #00939d,
-	200: #00adb5, // For slide toggle,
-	contrast : (
-		main: $light-primary-text,
-		lighter: $dark-primary-text,
-		darker: $light-primary-text,
-	)
-);
-$theme-primary: mat-palette($mat-primary, main, lighter, darker);
-
-body {
-	--accent-color: #222831;
-	--accent-lighter-color: #bdbfc1;
-	--accent-darker-color: #14181f;
-	--text-accent-color: #{$light-primary-text};
-	--text-accent-lighter-color: #{$dark-primary-text};
-	--text-accent-darker-color: #{$light-primary-text};
-}
-
-$mat-accent: (
-	main: #222831,
-	lighter: #bdbfc1,
-	darker: #14181f,
-	200: #222831, // For slide toggle,
-	contrast : (
-		main: $light-primary-text,
-		lighter: $dark-primary-text,
-		darker: $light-primary-text,
-	)
-);
-$theme-accent: mat-palette($mat-accent, main, lighter, darker);
-
-body {
-	--warn-color: #ff7878;
-	--warn-lighter-color: #ffd7d7;
-	--warn-darker-color: #ff5b5b;
-	--text-warn-color: #{$dark-primary-text};
-	--text-warn-lighter-color: #{$dark-primary-text};
-	--text-warn-darker-color: #{$dark-primary-text};
-}
-
-$mat-warn: (
-	main: #ff7878,
-	lighter: #ffd7d7,
-	darker: #ff5b5b,
-	200: #ff7878, // For slide toggle,
-	contrast : (
-		main: $dark-primary-text,
-		lighter: $dark-primary-text,
-		darker: $dark-primary-text,
-	)
-);
-$theme-warn: mat-palette($mat-warn, main, lighter, darker);;
-
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-
-// Theme Init
-@include angular-material-theme($theme);
-
-.theme-alternate {
-	@include angular-material-theme($altTheme);
-}
-
-// Specific component overrides, pieces that are not in line with the general theming
+$font-primary: Lato;
 
 * {
-	font-family: 'Lato', sans-serif;
-	color: $light-primary-text;
+	color: $theme-text;
 }
 
 html, body {
-	background-color: $dark-background;
+	background-color: $theme-background;
 }
 
-// Handle buttons appropriately, with respect to line-height
-.mat-raised-button, .mat-stroked-button, .mat-flat-button {
-	padding: 0 1.15em;
-	margin: 0 .65em;
-	min-width: 3em;
-	line-height: 36.4px
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+@mixin color($color-value) {
+	color: $color-value
 }
 
-.mat-standard-chip {
-	padding: .5em .85em;
-	min-height: 2.5em;
+@mixin bg-color($color-value) {
+	background-color: $color-value;
 }
 
+@mixin border-color($color-value) {
+	border-color: $color-value;
+}
+
+.theme-primary-text {
+	@include color($theme-primary);
+}
+
+.theme-primary-border {
+	@include border-color($theme-primary);
+}
+
+.theme-primary {
+	@include bg-color($theme-primary);
+}
+
+.theme-black-text {
+	@include color($theme-black);
+}
+
+.theme-black-border {
+	@include border-color($theme-black);
+}
+
+.theme-black {
+	@include bg-color($theme-black);
+}
+
+.theme-grey-text {
+	@include color($theme-grey);
+}
+
+.theme-grey-border {
+	@include border-color($theme-grey);
+}
+
+.theme-grey {
+	@include bg-color($theme-grey);
+}
+
+.btn-flat {
+	color: $theme-primary;
+}
+
+.btn {
+	background-color: $theme-primary-dark;
+	color: $theme-text;
+
+	&:hover {
+		background-color: $theme-primary;
+		color: white!important;
+	}
+
+}
+
+.btn-theme {
+	background-color: $theme-primary;
+
+	&:hover {
+		color: $theme-primary;
+		background-color: $theme-grey;
+		border-bottom: 2px solid $theme-primary;
+	}
+}
+
+
+::-webkit-scrollbar {
+	width: .5em;
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $theme-primary;
+}
+
+::selection {
+	background-color: $theme-primary-light;
+	color: $theme-black;
+}

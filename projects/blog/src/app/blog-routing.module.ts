@@ -9,8 +9,13 @@ const routes: Routes = [
 		component: PostComponent,
 	},
 	{
-		path: "**",
+		path: "",
 		component: PostListComponent,
+		pathMatch: "full"
+	},
+	{
+		path: "**",
+		redirectTo: "",
 		pathMatch: "full"
 	},
 ];

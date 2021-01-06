@@ -3,13 +3,16 @@ import { NgModule } from "@angular/core";
 
 import { BlogRoutingModule } from "./blog-routing.module";
 import { BlogComponent } from "./blog.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "../../../common/src/common-module";
-import { PostListComponent } from './post-list/post-list.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { PostListComponent } from "./post-list/post-list.component";
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
 import { LoggingInterceptor } from "../services/interceptors/logging.interceptor";
-import { PostListItemComponent } from './post-list/post-list-item/post-list-item.component';
-import { PostComponent } from './post/post.component';
+import { PostListItemComponent } from "./post-list/post-list-item/post-list-item.component";
+import { PostComponent } from "./post/post.component";
+import { MarkdownModule, MarkedOptions } from "ngx-markdown";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { PostListSkeletonComponent } from './post-list/post-list-skeleton/post-list-skeleton.component';
 
 @NgModule({
 	declarations: [
@@ -17,16 +20,31 @@ import { PostComponent } from './post/post.component';
 		PostListComponent,
 		PostListItemComponent,
 		PostComponent,
+		PostListSkeletonComponent,
 	],
 	imports: [
 		BrowserModule,
 		BlogRoutingModule,
 		BrowserAnimationsModule,
 		CommonModule,
-		HttpClientModule
+		HttpClientModule,
+		MarkdownModule.forRoot({
+			loader: HttpClient,
+			markedOptions: {
+				provide: MarkedOptions,
+				useValue: {
+					gfm: true,
+					breaks: false,
+					pedantic: false,
+					smartLists: true,
+					smartypants: false,
+				},
+			},
+		}),
+		NgxSkeletonLoaderModule,
 	],
 	providers: [
-		{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
+		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
 	],
 	bootstrap: [BlogComponent],
 })

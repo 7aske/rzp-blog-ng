@@ -1,3 +1,6 @@
-<h4>{{ post?.title }}</h4>
-<p style="font-size: initial">{{ post?.excerpt }}</p>
-<a routerLink="/post/{{post.id}}">Read More</a>
+<div class="pr-3 pl-3">
+	<h4><a routerLink="/post/{{post.id}}">{{ post?.title }}</a></h4>
+	<p class="flow-text">{{ post?.excerpt }}</p>
+	<a class="theme-primary-text" routerLink="/post/{{post.id}}">Read More</a>
+</div>
+<hr>

@@ -1,0 +1,16 @@
+@import "projects/common/src/assets/scss/theme";
+
+body {
+	overflow-y: scroll;
+}
+
+hr {
+	border-color: $theme-grey;
+	border-style: double;
+}
+
+a {
+	&:hover {
+		color: $theme-primary-light !important;
+	}
+}

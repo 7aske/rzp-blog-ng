@@ -1,11 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
-	imports: [
-		MatToolbarModule,
-	],
+	imports: [],
 	exports: [
 		NavbarComponent,
 	],
@@ -15,4 +12,5 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 	providers: [],
 	bootstrap: [],
 })
-export class CommonModule { }
+export class CommonModule {
+}

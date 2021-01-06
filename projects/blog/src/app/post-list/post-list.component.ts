@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PostService } from "../../services/post.service";
 import { Post } from "../../../../common/src/@types/entity/Post";
 
@@ -14,8 +14,10 @@ export class PostListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.postService.getAll()
-			.then(_posts => this.posts = _posts);
+		setTimeout(()=>{
+			this.postService.getAll()
+				.then(_posts => this.posts = _posts);
+		}, 2000);
 	}
 
 }

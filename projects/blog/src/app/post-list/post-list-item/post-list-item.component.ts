@@ -7,7 +7,7 @@ import { Post } from "../../../../../common/src/@types/entity/Post";
 	styleUrls: ["./post-list-item.component.scss"],
 })
 export class PostListItemComponent implements OnInit {
-	@Input
+	@Input()
 	public post: Post;
 
 	constructor() {

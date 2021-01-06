@@ -1,5 +1,13 @@
 <div class="container">
-	<h3>{{post.title}}</h3>
-	<h4>{{post.user.displayName}}</h4>
-	<p>{{post?.body}}</p>
+	<div class="row">
+		<div class="row"></div>
+		<a class="btn" routerLink="..">Back</a>
+	</div>
+	<div class="row">
+		<h3>{{post.title}}</h3>
+		<h4>{{post.user.displayName}}</h4>
+		<markdown class="markdown">
+			{{post?.body}}
+		</markdown>
+	</div>
 </div>
