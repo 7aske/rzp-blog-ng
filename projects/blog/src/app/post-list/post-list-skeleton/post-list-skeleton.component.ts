@@ -1,29 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
+import { trigger, state, style, transition, animate } from "@angular/animations";
 
 @Component({
-  selector: 'blog-post-list-skeleton',
-  template: `
-    <div>
-      <ngx-skeleton-loader [theme]="{
+	selector: "blog-post-list-skeleton",
+	template: `
+		<div @fadeOut>
+			<ngx-skeleton-loader [theme]="{
 				'border-radius': '5px',
 				'height': '50px',
 				'width': '300px',
 				'background-color': '#4ecca3'
 			}" animation="pulse"></ngx-skeleton-loader>
-      <ngx-skeleton-loader [theme]="{
+			<ngx-skeleton-loader [theme]="{
 				'border-radius': '5px',
 				'height': '150px',
 				'background-color': '#7d7d7d'
 			}" animation="pulse"></ngx-skeleton-loader>
-      <ngx-skeleton-loader [theme]="{
-				'border-radius': '5px',
-				'height': '20px',
-				'width': '100px',
+			<ngx-skeleton-loader count="{{randomCount()}}" [theme]="{
+				'border-radius': '10px',
+				'height': '25px',
+				'width': '50px',
+				'margin-right': '5px',
 				'background-color': '#4ecca3'
 			}" animation="pulse"></ngx-skeleton-loader>
-    </div>
-  `,
+		</div>
+	`,
+	animations: [
+		trigger("fadeOut", [
+			state("*", style({
+				opacity: 1,
+			})),
+			transition("* <=> void", animate(500)),
+		]),
+	],
 })
 export class PostListSkeletonComponent {
+	public randomCount(): number {
+		return Math.round(Math.random() * 5);
+	}
 
+	public randomTitleSize(): number {
+		return Math.round(Math.random() * 200 + 300);
+	}
 }

@@ -1,6 +1,12 @@
-<div class="pr-3 pl-3">
-	<h4><a routerLink="/post/{{post.id}}">{{ post?.title }}</a></h4>
+<div @fadeInOut class="pr-3 pl-3">
+	<span class="category"><a href="#">{{post.category.name}}</a></span>
+	<h4>
+		<a routerLink="/post/{{post.id}}">{{ post?.title }}</a>
+		<small>{{post.datePosted | date}}</small>
+	</h4>
 	<p class="flow-text">{{ post?.excerpt }}</p>
-	<a class="theme-primary-text" routerLink="/post/{{post.id}}">Read More</a>
+	<div *ngFor="let tag of post.tags">
+		<span class="blob">{{tag.name}}</span>
+	</div>
 </div>
 <hr>

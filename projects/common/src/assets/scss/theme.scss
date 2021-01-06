@@ -1,9 +1,9 @@
 $theme-black: #232931;
 $theme-grey: #393e46;
-$theme-grey-light: #656d7b;
+$theme-grey-light: #7e8795;
 $theme-primary: #4ecca3;
 $theme-primary-dark: #3ea183;
-$theme-primary-light: #c2eddf;
+$theme-primary-light: #94d7c1;
 $theme-white: #eeeeee;
 
 $theme-text: $theme-white;
@@ -68,6 +68,30 @@ html, body {
 
 .theme-grey {
 	@include bg-color($theme-grey);
+}
+
+.theme-grey-light-text {
+	@include color($theme-grey-light);
+}
+
+.theme-grey-light-border {
+	@include border-color($theme-grey-light);
+}
+
+.theme-grey-light {
+	@include bg-color($theme-grey-light);
+}
+
+.theme-white-text {
+	@include color($theme-white);
+}
+
+.theme-white-border {
+	@include border-color($theme-white);
+}
+
+.theme-white {
+	@include bg-color($theme-white);
 }
 
 .btn-flat {

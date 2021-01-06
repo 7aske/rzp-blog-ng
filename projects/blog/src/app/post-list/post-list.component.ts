@@ -14,10 +14,8 @@ export class PostListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		setTimeout(()=>{
-			this.postService.getAll()
-				.then(_posts => this.posts = _posts);
-		}, 2000);
+		this.postService.getAll()
+			.then(_posts => this.posts = _posts);
 	}
 
 }
