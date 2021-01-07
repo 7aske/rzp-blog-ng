@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service"
+import { LoginRoutingModule } from "./login-routing.module";
 
 @NgModule({
 	declarations: [
@@ -19,6 +20,7 @@ import {CookieService} from "ngx-cookie-service"
 		CommonModule,
 		ReactiveFormsModule,
 		HttpClientModule,
+		LoginRoutingModule,
 	],
 	providers: [
 		CookieService

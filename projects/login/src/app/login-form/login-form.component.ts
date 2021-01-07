@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import * as M from "materialize-css";
 import { AuthService } from "../../services/auth.service";
-import { CookieService } from "ngx-cookie-service";
+import { JwtService } from "../../../../common/src/services/jwt.service";
+import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 @Component({
 	selector: "login-login-form",
@@ -17,17 +19,29 @@ export class LoginFormComponent implements OnInit {
 
 	constructor(private fb: FormBuilder,
 	            private authService: AuthService,
-	            private cookieService: CookieService) {
+	            private router: Router,
+	            private jwtService: JwtService) {
+	}
+
+	ngOnInit(): void {
+		M.updateTextFields();
+		this.navigateIfLoggedIn();
 	}
 
 	async onSubmit() {
 		const username = this.loginForm.get("username")?.value;
 		const password = this.loginForm.get("password")?.value;
 		const res = await this.authService.login({username, password});
-		this.cookieService.set("token", res.token, {path: "/"});
+		this.jwtService.setToken(res.token);
+		this.navigateExternal();
 	}
 
-	ngOnInit(): void {
-		M.updateTextFields();
+	private navigateExternal() {
+		window.location.href = environment.adminBaseUrl;
+	}
+
+	private navigateIfLoggedIn() {
+		this.jwtService.validate()
+			.then(() => this.navigateExternal());
 	}
 }

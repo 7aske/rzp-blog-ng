@@ -69,7 +69,7 @@
 							"fileReplacements": [
 								{
 									"replace": "projects/blog/src/environments/environment.ts",
-									"with": "projects/blog/src/environments/environment.prod.ts"
+									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],
 							"optimization": true,
@@ -210,7 +210,7 @@
 							"fileReplacements": [
 								{
 									"replace": "projects/login/src/environments/environment.ts",
-									"with": "projects/login/src/environments/environment.prod.ts"
+									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],
 							"optimization": true,
@@ -270,17 +270,23 @@
 							"projects/admin/src/assets"
 						],
 						"styles": [
-							"./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+							"node_modules/materialize-css/dist/css/materialize.min.css",
+							"projects/common/src/assets/scss/responsive.scss",
+							"projects/common/src/assets/scss/helpers.scss",
+							"projects/common/src/assets/scss/theme.scss",
+							"projects/common/src/styles.scss",
 							"projects/admin/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+							"node_modules/materialize-css/dist/js/materialize.min.js"
+						]
 					},
 					"configurations": {
 						"production": {
 							"fileReplacements": [
 								{
 									"replace": "projects/admin/src/environments/environment.ts",
-									"with": "projects/admin/src/environments/environment.prod.ts"
+									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],
 							"optimization": true,

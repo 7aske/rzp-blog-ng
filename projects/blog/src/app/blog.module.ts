@@ -25,13 +25,14 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 		PostListSkeletonComponent,
 	],
 	imports: [
-		BrowserModule,
 		BlogRoutingModule,
 		BrowserAnimationsModule,
-		ScrollToModule.forRoot(),
-		NgxPaginationModule,
+		BrowserModule,
 		CommonModule,
 		HttpClientModule,
+		NgxPaginationModule,
+		NgxSkeletonLoaderModule,
+		ScrollToModule.forRoot(),
 		MarkdownModule.forRoot({
 			loader: HttpClient,
 			markedOptions: {
@@ -45,7 +46,6 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 				},
 			},
 		}),
-		NgxSkeletonLoaderModule,
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},

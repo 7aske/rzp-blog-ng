@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "http://127.0.0.1:8080/rzp-blog",
+  adminBaseUrl: "http://localhost:4202/admin",
+  blogBaseUrl: "http://localhost:4201/blog",
+  loginBaseUrl: "http://localhost:4203/login",
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
