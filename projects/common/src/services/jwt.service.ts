@@ -27,8 +27,20 @@ export class JwtService {
 		this.cookieService.set("token", token, {path: "/"});
 	}
 
+	public unsetToken() {
+		this.cookieService.set("token", "", {path: "/", expires: 0});
+	}
+
 	public validate() {
 		return this.authService.validate(this.cookieService.get("token"));
+	}
+
+	public isLoggedIn() {
+		try {
+			return !!this.getToken();
+		} catch (e) {
+			return false;
+		}
 	}
 }
 
