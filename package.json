@@ -25,6 +25,7 @@
     "ngx-markdown": "^11.0.1",
     "ngx-pagination": "^5.0.0",
     "ngx-skeleton-loader": "^2.6.2",
+    "ngx-toastr": "^13.2.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
