@@ -194,11 +194,16 @@
 							"projects/login/src/assets"
 						],
 						"styles": [
+							"node_modules/materialize-css/dist/css/materialize.min.css",
 							"projects/common/src/assets/scss/responsive.scss",
+							"projects/common/src/assets/scss/helpers.scss",
 							"projects/common/src/assets/scss/theme.scss",
+							"projects/common/src/styles.scss",
 							"projects/login/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+							"node_modules/materialize-css/dist/js/materialize.min.js"
+						]
 					},
 					"configurations": {
 						"production": {

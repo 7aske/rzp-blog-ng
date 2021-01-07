@@ -3,13 +3,10 @@ import { NgModule } from "@angular/core";
 
 import { LoginComponent } from "./login.component";
 import { CommonModule } from "../../../common/src/common-module";
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { HttpClientModule } from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service"
 
 @NgModule({
 	declarations: [
@@ -20,14 +17,12 @@ import { LoginFormComponent } from './login-form/login-form.component';
 	imports: [
 		BrowserModule,
 		CommonModule,
-		MatInputModule,
-		MatButtonModule,
-		MatSelectModule,
-		MatRadioModule,
-		MatCardModule,
 		ReactiveFormsModule,
+		HttpClientModule,
 	],
-	providers: [],
+	providers: [
+		CookieService
+	],
 	bootstrap: [LoginComponent],
 })
 export class LoginModule {

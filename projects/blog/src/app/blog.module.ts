@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "../../../common/src/common-module";
 import { PostListComponent } from "./post-list/post-list.component";
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
-import { LoggingInterceptor } from "../services/interceptors/logging.interceptor";
+import { LoggingInterceptor } from "projects/common/src/services/interceptors/logging.interceptor";
 import { PostListItemComponent } from "./post-list/post-list-item/post-list-item.component";
 import { PostComponent } from "./post/post.component";
 import { MarkdownModule, MarkedOptions } from "ngx-markdown";
