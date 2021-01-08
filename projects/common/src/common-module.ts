@@ -4,6 +4,7 @@ import { ScrollToFloatComponent } from "./components/scroll-to-float/scroll-to-f
 import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { ToDatePipe } from "./pipes/to-date.pipe";
 
 @NgModule({
 	imports: [
@@ -14,10 +15,12 @@ import { HttpClientModule } from "@angular/common/http";
 	exports: [
 		NavbarComponent,
 		ScrollToFloatComponent,
+		ToDatePipe,
 	],
 	declarations: [
 		NavbarComponent,
 		ScrollToFloatComponent,
+		ToDatePipe,
 	],
 	providers: [],
 	bootstrap: [],

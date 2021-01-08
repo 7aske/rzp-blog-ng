@@ -57,6 +57,7 @@
 						"styles": [
 							"node_modules/materialize-css/dist/css/materialize.min.css",
 							"projects/common/src/assets/scss/responsive.scss",
+							"projects/common/src/assets/scss/materialize.scss",
 							"projects/common/src/assets/scss/helpers.scss",
 							"projects/common/src/assets/scss/theme.scss",
 							"projects/common/src/styles.scss",
@@ -196,6 +197,7 @@
 						"styles": [
 							"node_modules/materialize-css/dist/css/materialize.min.css",
 							"projects/common/src/assets/scss/responsive.scss",
+							"projects/common/src/assets/scss/materialize.scss",
 							"projects/common/src/assets/scss/helpers.scss",
 							"projects/common/src/assets/scss/theme.scss",
 							"projects/common/src/styles.scss",
@@ -272,6 +274,7 @@
 						"styles": [
 							"node_modules/materialize-css/dist/css/materialize.min.css",
 							"projects/common/src/assets/scss/responsive.scss",
+							"projects/common/src/assets/scss/materialize.scss",
 							"projects/common/src/assets/scss/helpers.scss",
 							"projects/common/src/assets/scss/theme.scss",
 							"projects/common/src/styles.scss",

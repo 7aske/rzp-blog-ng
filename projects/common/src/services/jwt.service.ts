@@ -4,7 +4,10 @@ import { CookieService } from "ngx-cookie-service";
 import { AuthService } from "../../../login/src/services/auth.service";
 
 export interface JwtToken {
-	roles: string[]
+	roles: string[];
+	exp: number;
+	iat: number;
+	sub: string;
 }
 
 @Injectable({

@@ -16,12 +16,12 @@ export class PostComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		const id = this.route.snapshot.paramMap.get("id")!;
-		this.fetchPost(parseInt(id, 10));
+		const slug = this.route.snapshot.paramMap.get("slug")!;
+		this.fetchPost(slug);
 	}
 
-	private async fetchPost(id: number) {
-		this.post = await this.postService.getById(id);
+	private async fetchPost(slug: string) {
+		this.post = await this.postService.getBySlug(slug);
 	}
 
 }

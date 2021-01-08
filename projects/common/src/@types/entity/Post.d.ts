@@ -16,4 +16,6 @@ export interface Post extends Identifiable {
 	views: number;
 	slug: string;
 	tags: Tag[];
+	createdDate: string;
+	lastModifiedDate: string;
 }

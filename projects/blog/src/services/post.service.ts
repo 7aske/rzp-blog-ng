@@ -19,4 +19,8 @@ export class PostService {
 	public getById(id: number) {
 		return this.http.get<Post>(`${this.baseUrl}/${id}`).toPromise();
 	}
+
+	public getBySlug(slug: string) {
+		return this.http.get<Post>(`${this.baseUrl}/${slug}`).toPromise();
+	}
 }

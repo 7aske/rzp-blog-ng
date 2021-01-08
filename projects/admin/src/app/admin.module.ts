@@ -8,17 +8,23 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { PostListComponent } from './post-list/post-list.component';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoggingInterceptor } from "../../../common/src/services/interceptors/logging.interceptor";
+import { PostListItemComponent } from './post-list/post-list-item/post-list-item.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
 	declarations: [
 		AdminComponent,
 		PostListComponent,
+		PostListItemComponent,
+		SidenavComponent,
 	],
 	imports: [
 		AdminRoutingModule,
 		BrowserModule,
 		CommonModule,
 		NgxPaginationModule,
+		MomentModule,
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},

@@ -1,15 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { environment as commonEnv } from "projects/common/src/environments/environment";
 
 export const environment = {
-  production: false,
-  baseUrl: "http://127.0.0.1:8080/rzp-blog",
-  adminBaseUrl: "http://localhost:4202/admin",
-  blogBaseUrl: "http://localhost:4201/blog",
-  loginBaseUrl: "http://localhost:4203/login",
+	...commonEnv,
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
