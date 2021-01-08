@@ -16,16 +16,16 @@
 			<span class="blob grey darken-2">{{post.category.name}}</span>
 		</div>
 		<div class="col s2 m2 l1">
-			<i class="material-icons theme-primary-text tooltipped cursor" *ngIf="post.published"
-			   data-tooltip="Published">assignment_turned_in</i>
+			<i class="material-icons theme-primary-text cursor" *ngIf="post.published"
+			   tooltip="Published" [show-delay]="500">assignment_turned_in</i>
 			<i class="material-icons" *ngIf="!post.published"></i>
 		</div>
 		<div class="col s2 m2 l1">
 			{{post.lastModifiedDate | toDate | amTimeAgo}}
 		</div>
 		<div class="col s2 m2 l2">
-			<a  class="pointer tooltipped" data-tooltip="Edit"><i class="material-icons theme-primary-text">edit</i></a>
-			<a (click)="delete()" class="pointer tooltipped" data-tooltip="Delete"><i class="material-icons theme-error-text">delete</i></a>
+			<a  routerLink="edit/{{post.id}}" class="pointer" tooltip="Edit" [show-delay]="500"><i class="material-icons theme-primary-text">edit</i></a>
+			<a (click)="delete()" class="pointer" tooltip="Delete" [show-delay]="500"><i class="material-icons theme-error-text">delete</i></a>
 		</div>
 	</div>
 </li>

@@ -16,6 +16,10 @@ export class PostService {
 		return this.http.get<Post[]>(`${this.baseUrl}`).toPromise();
 	}
 
+	public getById(id: number|string) {
+		return this.http.get<Post>(`${this.baseUrl}/${id}`).toPromise();
+	}
+
 	public save(post: Post) {
 		return this.http.post<Post>(`${this.baseUrl}`, post).toPromise();
 	}

@@ -5,14 +5,20 @@ import { AdminComponent } from "./admin.component";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { CommonModule } from "projects/common/src/common-module";
 import { NgxPaginationModule } from "ngx-pagination";
-import { PostListComponent } from './post-list/post-list.component';
+import { PostListComponent } from "./post-list/post-list.component";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoggingInterceptor } from "../../../common/src/services/interceptors/logging.interceptor";
-import { PostListItemComponent } from './post-list/post-list-item/post-list-item.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { MomentModule } from 'angular2-moment';
+import { PostListItemComponent } from "./post-list/post-list-item/post-list-item.component";
+import { SidenavComponent } from "./sidenav/sidenav.component";
+import { MomentModule } from "angular2-moment";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EditPostComponent } from "./edit-post/edit-post.component";
+import { TooltipModule } from "ng2-tooltip-directive";
+import { ReactiveFormsModule } from "@angular/forms";
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from "ng2-simplemde";
+import marked from "marked";
+
 
 @NgModule({
 	declarations: [
@@ -20,6 +26,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 		PostListComponent,
 		PostListItemComponent,
 		SidenavComponent,
+		EditPostComponent,
 	],
 	imports: [
 		AdminRoutingModule,
@@ -28,6 +35,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 		CommonModule,
 		NgxPaginationModule,
 		MomentModule,
+		TooltipModule,
 		ToastrModule.forRoot({
 			timeOut: 5000,
 			maxOpened: 5,
@@ -35,6 +43,24 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 			enableHtml: true,
 			positionClass: "toast-bottom-center",
 		}),
+		SimplemdeModule.forRoot({
+			provide: SIMPLEMDE_CONFIG,
+			useValue: {
+				sideBySideFullscreen: true,
+				previewRender: (plainText: string) => {
+					return marked(plainText, {gfm: true}); // Returns HTML from a custom parser
+				},
+				showIcons: ["strikethrough", "code", "table", "redo", "heading", "undo", "horizontal-rule"],
+				renderingConfig: {
+					codeSyntaxHighlighting: true,
+					markedOptions: {gfm: true},
+				},
+				spellChecker: false,
+				status: ["autosave", "cursor"],
+
+			},
+		}),
+		ReactiveFormsModule,
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},

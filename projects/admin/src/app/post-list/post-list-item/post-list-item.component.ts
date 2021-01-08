@@ -19,7 +19,6 @@ export class PostListItemComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		M.Tooltip.init(document.querySelectorAll(".tooltipped"), {position: "top"});
 	}
 
 	public delete() {

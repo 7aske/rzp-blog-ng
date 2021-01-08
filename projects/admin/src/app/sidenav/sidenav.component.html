@@ -2,19 +2,19 @@
 	<li>
 		<div class="user-view">
 			<div class="background">
-				<img src="images/office.jpg">
+				<!--<img src="images/office.jpg">-->
 			</div>
 			<a href="#user"><img class="circle" src="../../assets/img/profile.png"></a>
-			<a href="#name"><span class="white-text name">{{user?.firstName}} {{user?.lastName}}</span></a>
-			<a href="#email"><span class="white-text email">{{user?.email}}</span></a>
+			<a href="#name"><span class="name">{{user?.firstName}} {{user?.lastName}}</span></a>
+			<a href="#email"><span class="email">{{user?.email}}</span></a>
 		</div>
 	</li>
-	<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-	<li><a href="#!">Second Link</a></li>
-	<li>
-		<div class="divider"></div>
-	</li>
-	<li><a class="subheader">Subheader</a></li>
-	<li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+	<li><a routerLink="edit" class="sidenav-close"><i class="material-icons">add_to_photos</i>New Post</a></li>
+	<li><a routerLink="" class="sidenav-close"><i class="material-icons">format_list_bulleted</i>Posts</a></li>
+	<!--<li>-->
+	<!--	<div class="divider"></div>-->
+	<!--</li>-->
+	<!--<li><a class="subheader">Subheader</a></li>-->
+	<!--<li><a class="waves-effect" href="#!">Third Link With Waves</a></li>-->
 </ul>
 <a href="#" data-target="admin-sidenav" class="sidenav-trigger right btn-large btn-flat"><i class="material-icons">menu</i></a>
