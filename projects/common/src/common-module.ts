@@ -5,6 +5,7 @@ import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { ToDatePipe } from "./pipes/to-date.pipe";
+import { ConfirmDialogComponent } from "./components/confirm-dialog/confirm-dialog.component";
 
 @NgModule({
 	imports: [
@@ -16,11 +17,13 @@ import { ToDatePipe } from "./pipes/to-date.pipe";
 		NavbarComponent,
 		ScrollToFloatComponent,
 		ToDatePipe,
+		ConfirmDialogComponent,
 	],
 	declarations: [
 		NavbarComponent,
 		ScrollToFloatComponent,
 		ToDatePipe,
+		ConfirmDialogComponent,
 	],
 	providers: [],
 	bootstrap: [],

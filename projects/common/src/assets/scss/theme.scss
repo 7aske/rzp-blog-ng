@@ -26,15 +26,15 @@ html, body {
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 @mixin color($color-value) {
-	color: $color-value
+	color: $color-value !important;
 }
 
 @mixin bg-color($color-value) {
-	background-color: $color-value;
+	background-color: $color-value !important;
 }
 
 @mixin border-color($color-value) {
-	border-color: $color-value;
+	border-color: $color-value !important;
 }
 
 .theme-primary-text {
