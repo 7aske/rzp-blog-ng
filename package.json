@@ -6,7 +6,7 @@
     "start:blog": "ng serve blog",
     "start:admin": "ng serve admin",
     "start:login": "ng serve login",
-    "build": "ng build admin && ng build blog && ng build login"
+    "build": "ng build --prod --project=admin && ng build --prod --project=blog && ng build --prod --project=login"
   },
   "private": true,
   "dependencies": {

@@ -17,7 +17,7 @@ import { EditPostComponent } from "./edit-post/edit-post.component";
 import { TooltipModule } from "ng2-tooltip-directive";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from "ng2-simplemde";
-import marked from "marked";
+import * as marked from "marked";
 import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 
 

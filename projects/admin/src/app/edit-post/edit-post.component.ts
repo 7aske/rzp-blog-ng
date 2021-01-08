@@ -68,26 +68,24 @@ export class EditPostComponent implements OnInit {
 			body: _post.body,
 		});
 
-		const chipsInput = M.Chips.getInstance(document.querySelector(".chips"));
+		const chipsInput = M.Chips.getInstance(document.querySelector(".chips")!);
 		_post.tags.forEach(tag => {
 			chipsInput.addChip({tag: tag.name});
 		});
 
 		setTimeout(() => {
-			M.textareaAutoResize(document.querySelector("textarea"));
+			M.textareaAutoResize(document.querySelector("textarea")!);
 			M.updateTextFields();
 		}, 200);
 	}
 
 	onSubmit() {
-		const postTagChips = M.Chips.getInstance(document.querySelector(".chips")).chipsData;
+		const postTagChips = M.Chips.getInstance(document.querySelector(".chips")!).chipsData;
 		const post: Post = {
 			id: this.post ? this.post.id : undefined,
 			body: this.postForm.get("body")?.value,
-			category: {
-				id: this.postForm.get("category")?.value,
-			},
-			tags: postTagChips.map(chip => this.tags.find(tag => tag.name === chip.tag)).filter(tag => !!tag),
+			category: this.categories.find(categ => categ.id === this.postForm.get("category")?.value!)!,
+			tags: postTagChips.map(chip => this.tags.find(tag => tag.name === chip.tag)).filter(tag => !!tag) as Tag[],
 			user: this.user,
 			excerpt: this.postForm.get("excerpt")?.value,
 			published: true,
@@ -106,7 +104,7 @@ export class EditPostComponent implements OnInit {
 	}
 
 	updateCategoryInput() {
-		M.FormSelect.init(document.querySelector("#categorySelect"), {
+		M.FormSelect.init(document.querySelector("#categorySelect")!, {
 			dropdownOptions: {
 				autoTrigger: true,
 			},
@@ -115,9 +113,9 @@ export class EditPostComponent implements OnInit {
 
 	updateChipInput() {
 		const data = Object.assign({}, ...this.tags.map(tag => ({[tag.name]: null})));
-		M.Chips.init(document.querySelector(".chips"), {
+		M.Chips.init(document.querySelector(".chips")!, {
 			onChipAdd: (element, chip) => {
-				const chipValue = chip.childNodes[0].textContent.trim();
+				const chipValue = chip.childNodes[0]!.textContent!.trim();
 				const tag = this.tags.find(_tag => _tag.name === chipValue);
 				if (!tag) chip.remove();
 			},

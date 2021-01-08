@@ -2,20 +2,17 @@ import { Identifiable } from "./Identifiable";
 import { User } from  "./User"
 import { Category } from  "./Category"
 import { Tag } from  "./Tag"
+import { Auditable } from "./Auditable";
 
-export interface Post extends Identifiable {
-	id: number;
+export interface Post extends Identifiable, Auditable {
 	user: User;
 	category: Category;
 	title: string;
 	excerpt: string;
 	body: string;
-	datePosted: Date;
-	deleted: boolean;
-	published: boolean;
-	views: number;
+	deleted?: boolean;
+	published?: boolean;
+	views?: number;
 	slug: string;
 	tags: Tag[];
-	createdDate: string;
-	lastModifiedDate: string;
 }

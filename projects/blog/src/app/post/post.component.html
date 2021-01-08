@@ -8,7 +8,7 @@
 		<h3>{{post?.title}}</h3>
 		<h6 class="theme-grey-light-text">Posted by: <span class="theme-primary-text" *ngIf="post">{{post.user?.displayName}}</span>
 		</h6>
-		<h6 class="theme-grey-light-text">Posted at: <span class="theme-white-text">{{post?.datePosted | date}}</span>
+		<h6 class="theme-grey-light-text">Posted at: <span class="theme-white-text">{{post?.createdDate | date}}</span>
 		</h6>
 		<div class="mt-4">
 			<span class="blob" *ngFor="let tag of post?.tags">{{tag.name}}</span>
