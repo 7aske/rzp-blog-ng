@@ -11,6 +11,8 @@ import { LoggingInterceptor } from "../../../common/src/services/interceptors/lo
 import { PostListItemComponent } from './post-list/post-list-item/post-list-item.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MomentModule } from 'angular2-moment';
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
 	declarations: [
@@ -22,9 +24,17 @@ import { MomentModule } from 'angular2-moment';
 	imports: [
 		AdminRoutingModule,
 		BrowserModule,
+		BrowserAnimationsModule,
 		CommonModule,
 		NgxPaginationModule,
 		MomentModule,
+		ToastrModule.forRoot({
+			timeOut: 5000,
+			maxOpened: 5,
+			preventDuplicates: true,
+			enableHtml: true,
+			positionClass: "toast-bottom-center",
+		}),
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},

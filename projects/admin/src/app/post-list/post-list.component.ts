@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { PostService } from "../../services/post.service";
 import { Post } from "../../../../common/src/@types/entity/Post";
+import { migrateLegacyGlobalConfig } from "@angular/cli/utilities/config";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
 	selector: "admin-post-list",
@@ -12,11 +14,20 @@ export class PostListComponent implements OnInit {
 	public posts: Post[] = [];
 	public page: number = 0;
 
-	constructor(private postService: PostService) {
+	constructor(private postService: PostService,
+	            private toastService: ToastrService) {
 	}
 
 	ngOnInit(): void {
-		this.postService.getAll().then(_posts => this.posts = _posts);
+		this.postService.getAll()
+			.then(_posts => this.posts = _posts);
 	}
 
+	public onDelete(id: number) {
+		this.postService.delete(id)
+			.then(() => {
+				this.posts = this.posts.filter(p => p.id !== id);
+				this.toastService.info("Post deleted", "Delete");
+			});
+	}
 }
