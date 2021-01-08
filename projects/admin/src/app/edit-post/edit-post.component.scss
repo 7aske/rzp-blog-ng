@@ -29,8 +29,9 @@
 
 	.editor-toolbar {
 
-		border-radius: 0;
 		border: none;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
 		background-color: $theme-primary;
 
 		button {
