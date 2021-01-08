@@ -18,6 +18,7 @@ import { TooltipModule } from "ng2-tooltip-directive";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from "ng2-simplemde";
 import marked from "marked";
+import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import marked from "marked";
 		NgxPaginationModule,
 		MomentModule,
 		TooltipModule,
+		ScrollToModule.forRoot(),
 		ToastrModule.forRoot({
 			timeOut: 5000,
 			maxOpened: 5,

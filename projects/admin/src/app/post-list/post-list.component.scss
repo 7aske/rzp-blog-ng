@@ -5,7 +5,7 @@
 		transition: all 500ms;
 		margin-left: 0;
 		margin-right: 0;
-		background-color: $theme-primary;
+		background-color: $theme-grey;
 		height: 3.5em;
 		border-radius: 3px;
 
@@ -13,13 +13,17 @@
 			height: 3.5em !important;
 
 			a {
+				i {
+					color: $theme-primary !important;
+					margin: 0!important;
+				}
 				top: -5px;
 				position: relative;
-				&:hover {
-					color: $theme-primary;
-					background-color: $theme-black;
-					border-bottom: 2px solid $theme-primary;
-				}
+			}
+			&:hover {
+				color: $theme-primary;
+				background-color: $theme-black;
+				border-bottom: 2px solid $theme-primary;
 			}
 		}
 

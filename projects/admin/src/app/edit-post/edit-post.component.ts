@@ -42,22 +42,20 @@ export class EditPostComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		M.updateTextFields();
-		const id = this.route.snapshot.paramMap.get("id");
-		if (id) {
-			this.postService.getById(id)
-				.then(_post => this.updatePostForm(_post));
-		}
-		this.userInfoService.getLoggedInUser().then(_user => {
-			this.user = _user;
-		});
-		this.categoryService.getAll().then(_categories => {
-			this.categories = _categories;
-			setTimeout(() => this.updateCategoryInput(), 200);
-		});
-		this.tagService.getAll().then(_tags => {
-			this.tags = _tags;
-		});
+		(async () => {
+			M.updateTextFields();
+			this.user = await this.userInfoService.getLoggedInUser();
+			this.categories = await this.categoryService.getAll();
+			this.tags = await this.tagService.getAll();
+			const id = this.route.snapshot.paramMap.get("id");
+			this.updateChipInput();
+			this.updateCategoryInput();
+
+			if (id) {
+				this.updatePostForm(await this.postService.getById(id));
+			}
+
+		})();
 	}
 
 	updatePostForm(_post: Post) {
@@ -69,6 +67,12 @@ export class EditPostComponent implements OnInit {
 			excerpt: _post.excerpt,
 			body: _post.body,
 		});
+
+		const chipsInput = M.Chips.getInstance(document.querySelector(".chips"));
+		_post.tags.forEach(tag => {
+			chipsInput.addChip({tag: tag.name});
+		});
+
 		setTimeout(() => {
 			M.textareaAutoResize(document.querySelector("textarea"));
 			M.updateTextFields();
@@ -76,19 +80,20 @@ export class EditPostComponent implements OnInit {
 	}
 
 	onSubmit() {
+		const postTagChips = M.Chips.getInstance(document.querySelector(".chips")).chipsData;
 		const post: Post = {
 			id: this.post ? this.post.id : undefined,
 			body: this.postForm.get("body")?.value,
 			category: {
-				id:this.postForm.get("category")?.value
+				id: this.postForm.get("category")?.value,
 			},
+			tags: postTagChips.map(chip => this.tags.find(tag => tag.name === chip.tag)).filter(tag => !!tag),
 			user: this.user,
 			excerpt: this.postForm.get("excerpt")?.value,
 			published: true,
 			slug: this.postForm.get("slug")?.value,
 			title: this.postForm.get("title")?.value,
 		};
-
 		if (post.id) {
 			this.postService.update(post)
 				.then(() => this.toastService.info("Post saved"))
@@ -106,6 +111,19 @@ export class EditPostComponent implements OnInit {
 				autoTrigger: true,
 			},
 		});
-		// instance.input = document.querySelector("#categorySelectInput");
+	}
+
+	updateChipInput() {
+		const data = Object.assign({}, ...this.tags.map(tag => ({[tag.name]: null})));
+		M.Chips.init(document.querySelector(".chips"), {
+			onChipAdd: (element, chip) => {
+				const chipValue = chip.childNodes[0].textContent.trim();
+				const tag = this.tags.find(_tag => _tag.name === chipValue);
+				if (!tag) chip.remove();
+			},
+			autocompleteOptions: {
+				data,
+			},
+		});
 	}
 }

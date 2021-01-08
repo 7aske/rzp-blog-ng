@@ -7,7 +7,7 @@ import { Tag } from "../../../common/src/@types/entity/Tag";
 	providedIn: "root",
 })
 export class TagService {
-	private baseUrl = environment.baseUrl;
+	private baseUrl = `${environment.baseUrl}/tags`;
 
 	constructor(private http: HttpClient) {
 	}

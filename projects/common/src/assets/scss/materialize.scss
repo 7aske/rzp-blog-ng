@@ -48,6 +48,7 @@ nav {
 				color: $theme-grey;
 			}
 		}
+
 		.highlight {
 			color: $theme-primary !important;
 		}
@@ -75,13 +76,36 @@ nav {
 	}
 }
 
+.chips + label {
+	transform: translateY(-14px) scale(0.8) !important;
+}
+
+.input-field .chips {
+	input[type=text]:focus {
+		color: $theme-white !important;
+		border-bottom: none !important;
+		box-shadow: none !important;
+	}
+}
+
 .chips .input:not(:disabled) {
-	//border-bottom: 1px solid #9e9e9e;
-	//box-shadow: 0 1px 0 0 transparent !important;
+	color: $theme-white !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
 }
 
 .chips input {
 	color: $theme-white !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+}
+
+.chips input {
+	&:focus, &:active {
+		color: $theme-white !important;
+		border-bottom: none !important;
+		box-shadow: none !important;
+	}
 }
 
 .chips.focus {
