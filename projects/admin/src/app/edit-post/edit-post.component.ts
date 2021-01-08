@@ -53,6 +53,7 @@ export class EditPostComponent implements OnInit {
 		});
 		this.categoryService.getAll().then(_categories => {
 			this.categories = _categories;
+			setTimeout(() => this.updateCategoryInput(), 200);
 		});
 		this.tagService.getAll().then(_tags => {
 			this.tags = _tags;
@@ -79,7 +80,7 @@ export class EditPostComponent implements OnInit {
 			id: this.post ? this.post.id : undefined,
 			body: this.postForm.get("body")?.value,
 			category: {
-				id: this.postForm.get("category")?.value,
+				id:this.postForm.get("category")?.value
 			},
 			user: this.user,
 			excerpt: this.postForm.get("excerpt")?.value,
@@ -87,7 +88,7 @@ export class EditPostComponent implements OnInit {
 			slug: this.postForm.get("slug")?.value,
 			title: this.postForm.get("title")?.value,
 		};
-		console.log(this.user)
+
 		if (post.id) {
 			this.postService.update(post)
 				.then(() => this.toastService.info("Post saved"))
@@ -97,5 +98,14 @@ export class EditPostComponent implements OnInit {
 				.then(() => this.toastService.info("Post saved"))
 				.catch(err => this.toastService.error(err.error.error));
 		}
+	}
+
+	updateCategoryInput() {
+		M.FormSelect.init(document.querySelector("#categorySelect"), {
+			dropdownOptions: {
+				autoTrigger: true,
+			},
+		});
+		// instance.input = document.querySelector("#categorySelectInput");
 	}
 }

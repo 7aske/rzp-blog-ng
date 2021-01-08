@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { PostService } from "../../services/post.service";
 import { Post } from "../../../../common/src/@types/entity/Post";
-import { migrateLegacyGlobalConfig } from "@angular/cli/utilities/config";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
