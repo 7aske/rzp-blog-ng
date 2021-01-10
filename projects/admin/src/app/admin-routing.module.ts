@@ -21,11 +21,11 @@ const routes: Routes = [
 				path: "edit/:id",
 				component: EditPostComponent,
 			},
-			// {
-			// 	path: "**",
-			// 	redirectTo: "",
-			// 	pathMatch: "full"
-			// },
+			{
+				path: "**",
+				redirectTo: "",
+				pathMatch: "full"
+			},
 		],
 	},
 ];

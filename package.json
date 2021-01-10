@@ -6,7 +6,8 @@
     "start:blog": "ng serve blog",
     "start:admin": "ng serve admin",
     "start:login": "ng serve login",
-    "build": "ng build --prod --project=admin --base-href=/admin/ && ng build --prod --project=blog --base-href=/blog/ && ng build --prod --project=login --base-href=/login/"
+    "build": "ng build --prod --project=admin --base-href=/admin/ && ng build --prod --project=blog --base-href=/blog/ && ng build --prod --project=login --base-href=/login/",
+    "deploy": "rsync -havzu --progress --delete dist/ root@viking.lan:/srv/http/rzp-blog-ng/"
   },
   "private": true,
   "dependencies": {
