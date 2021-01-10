@@ -5,11 +5,12 @@ import { LoginComponent } from "./login.component";
 import { CommonModule } from "../../../common/src/common-module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginFormComponent } from "./login-form/login-form.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CookieService } from "ngx-cookie-service";
 import { LoginRoutingModule } from "./login-routing.module";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AuthInterceptor } from "../../../common/src/services/interceptors/auth.interceptor";
 
 @NgModule({
 	declarations: [
@@ -34,6 +35,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 	],
 	providers: [
 		CookieService,
+		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
 	],
 	bootstrap: [LoginComponent],
 })

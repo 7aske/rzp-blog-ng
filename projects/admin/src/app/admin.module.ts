@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from "ng2-simplemde";
 import * as marked from "marked";
 import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
+import { AuthInterceptor } from "../../../common/src/services/interceptors/auth.interceptor";
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
+		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
 	],
 	bootstrap: [AdminComponent],
 })

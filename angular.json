@@ -70,6 +70,10 @@
 							"fileReplacements": [
 								{
 									"replace": "projects/blog/src/environments/environment.ts",
+									"with": "projects/blog/src/environments/environment.prod.ts"
+								},
+								{
+									"replace": "projects/common/src/environments/environment.ts",
 									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],
@@ -200,6 +204,10 @@
 							"fileReplacements": [
 								{
 									"replace": "projects/login/src/environments/environment.ts",
+									"with": "projects/login/src/environments/environment.prod.ts"
+								},
+								{
+									"replace": "projects/common/src/environments/environment.ts",
 									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],
@@ -266,6 +274,10 @@
 							"fileReplacements": [
 								{
 									"replace": "projects/admin/src/environments/environment.ts",
+									"with": "projects/admin/src/environments/environment.prod.ts"
+								},
+								{
+									"replace": "projects/common/src/environments/environment.ts",
 									"with": "projects/common/src/environments/environment.prod.ts"
 								}
 							],

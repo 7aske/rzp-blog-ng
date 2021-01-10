@@ -15,6 +15,7 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { PostListSkeletonComponent } from './post-list/post-list-skeleton/post-list-skeleton.component';
 import { NgxPaginationModule } from "ngx-pagination";
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { AuthInterceptor } from "../../../common/src/services/interceptors/auth.interceptor";
 
 @NgModule({
 	declarations: [
@@ -49,6 +50,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
+		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
 	],
 	bootstrap: [BlogComponent],
 })
