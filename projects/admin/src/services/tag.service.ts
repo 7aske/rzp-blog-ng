@@ -15,4 +15,16 @@ export class TagService {
 	public getAll() {
 		return this.http.get<Tag[]>(`${this.baseUrl}`).toPromise();
 	}
+
+	public save(tag: Tag) {
+		return this.http.post<Tag>(`${this.baseUrl}`, tag).toPromise();
+	}
+
+	public update(tag: Tag) {
+		return this.http.put<Tag>(`${this.baseUrl}`, tag).toPromise();
+	}
+
+	public delete(id: number | string) {
+		return this.http.delete<void>(`${this.baseUrl}/${id}`).toPromise();
+	}
 }

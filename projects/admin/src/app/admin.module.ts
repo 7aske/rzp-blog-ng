@@ -20,6 +20,8 @@ import { SimplemdeModule, SIMPLEMDE_CONFIG } from "ng2-simplemde";
 import * as marked from "marked";
 import { ScrollToModule } from "@nicky-lenaers/ngx-scroll-to";
 import { AuthInterceptor } from "../../../common/src/services/interceptors/auth.interceptor";
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { EditTagComponent } from './edit-tag/edit-tag.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { AuthInterceptor } from "../../../common/src/services/interceptors/auth.
 		PostListItemComponent,
 		SidenavComponent,
 		EditPostComponent,
+		EditCategoryComponent,
+		EditTagComponent,
 	],
 	imports: [
 		AdminRoutingModule,
